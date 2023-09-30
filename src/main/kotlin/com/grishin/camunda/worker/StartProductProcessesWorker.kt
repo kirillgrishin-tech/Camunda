@@ -11,6 +11,7 @@ import org.camunda.community.extension.coworker.spring.annotation.Coworker
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
+import reactor.kotlin.core.publisher.toMono
 
 @Component
 class StartProductProcessesWorker {
@@ -29,7 +30,7 @@ class StartProductProcessesWorker {
         val variables = job.getVariablesAsType(ProcessVariables::class.java)
         variables.businessKey = job.processInstanceKey.toString()
         variables.result = processService.myOperation(variables.businessKey)
-        LOG.info("Test for")
+        LOG.info("Test").toMono().subscribe()
         variables.products
                 ?.forEach { product ->
                     product?.parentId = job.processInstanceKey.toString()

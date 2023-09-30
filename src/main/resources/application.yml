@@ -5,8 +5,8 @@ zeebe:
       clientId: zeebe
       clientSecret: DTz0pQAyTF
     worker:
-      name: default
       defaultName: default
+      threads: 30
     broker:
       gateway-address: localhost:26500
     security:

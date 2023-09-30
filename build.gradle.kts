@@ -31,6 +31,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	implementation("org.camunda.community.extension.kotlin.coworker:coworker-core:0.5.0")
+	implementation("com.github.piomin:reactive-logstash-logging-spring-boot-starter:1.4.1")
 	implementation("org.camunda.community.extension.kotlin.coworker:coworker-spring-boot-starter:0.5.0")
 	implementation("org.apache.commons:commons-lang3")
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")

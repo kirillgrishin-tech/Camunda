@@ -5,6 +5,7 @@ import com.grishin.camunda.service.ProcessService
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
+import reactor.kotlin.core.publisher.toMono
 import java.util.concurrent.ExecutionException
 
 @RestController
@@ -29,7 +30,7 @@ class ProcessController {
                 "Publishing message `{}` with correlation key `{}` and variables: {}",
                 messageName,
                 correlationKey,
-                variables)
+                variables).toMono().block()
         processService.publish(messageName, correlationKey, variables)
     }
 
