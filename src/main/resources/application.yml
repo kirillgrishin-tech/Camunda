@@ -1,0 +1,18 @@
+zeebe:
+  client:
+    cloud:
+      auth-url: http://camunda.xyz/auth/realms/camunda-platform/protocol/openid-connect/token
+      clientId: zeebe
+      clientSecret: DTz0pQAyTF
+    worker:
+      name: default
+      defaultName: default
+    broker:
+      gateway-address: localhost:26500
+    security:
+      plaintext: 'true'
+spring:
+  data:
+    mongodb:
+      database: admin
+      uri: mongodb://admin:admin@localhost:27017/admin
