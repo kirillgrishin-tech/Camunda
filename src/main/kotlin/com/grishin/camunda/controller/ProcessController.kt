@@ -30,7 +30,9 @@ class ProcessController {
                 "Publishing message `{}` with correlation key `{}` and variables: {}",
                 messageName,
                 correlationKey,
-                variables).toMono().block()
+                variables)
+            .toMono()
+            .subscribe()
         processService.publish(messageName, correlationKey, variables)
     }
 

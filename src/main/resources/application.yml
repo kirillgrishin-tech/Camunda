@@ -3,14 +3,14 @@ zeebe:
     cloud:
       auth-url: http://camunda.xyz/auth/realms/camunda-platform/protocol/openid-connect/token
       clientId: zeebe
-      clientSecret: DTz0pQAyTF
+      clientSecret: HIqHaTPioM
     worker:
       defaultName: default
       threads: 30
     broker:
-      gateway-address: localhost:26500
+      gateway-address: zeebe.camunda.xyz
     security:
-      plaintext: 'true'
+      plaintext: 'false'
 spring:
   data:
     mongodb:
