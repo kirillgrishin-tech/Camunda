@@ -25,8 +25,6 @@ class ProcessService {
 
     @Throws(ExecutionException::class, InterruptedException::class)
     fun create(variables: ProcessVariables): ProcessVariables? {
-        val clientRequest = clientRequestRepository
-                .insert(ClientRequest(products = variables.products, id =null, businessKey = variables.businessKey))
         val processInstanceId = zeebeClient
                 .newCreateInstanceCommand()
                 .bpmnProcessId("camunda-process")
@@ -35,14 +33,12 @@ class ProcessService {
                 .send()
                 .get()
                 .processInstanceKey
-        clientRequest.subscribe {
-            clientRequestDB: ClientRequest ->
-            clientRequestRepository.save(ClientRequest(
-                    products =clientRequestDB.products,
-                    id =clientRequestDB.id,
-                    businessKey = clientRequestDB.businessKey))
-        }
-
+        clientRequestRepository
+            .insert(ClientRequest(
+                products = variables.products,
+                id =null,
+                businessKey = processInstanceId.toString()))
+            .subscribe()
         return ProcessVariables(
                 businessKey = processInstanceId.toString(),
                 result = null,

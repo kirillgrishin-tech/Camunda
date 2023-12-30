@@ -30,7 +30,4 @@ class SendCompleteSignalWorker {
                 .send()
     }
 
-    companion object {
-        private val LOG = LoggerFactory.getLogger(StartProductProcessesWorker::class.java)
-    }
 }

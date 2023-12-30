@@ -14,8 +14,8 @@ class CheckConditionWorker {
     suspend fun checkCondition(client: JobClient, job: ActivatedJob) {
         val waitForConditionDto = job.getVariablesAsType(WaitForConditionDto::class.java)
         when (waitForConditionDto.condition) {
-            "AllChildProcessesCompleted" -> waitForConditionDto.isSuccess = true
-            else -> waitForConditionDto.isSuccess = false
+            "AllChildProcessesCompleted" -> waitForConditionDto.success = true
+            else -> waitForConditionDto.success = false
         }
         client.newCompleteCommand(job.key).variables(waitForConditionDto).send().await()
     }
