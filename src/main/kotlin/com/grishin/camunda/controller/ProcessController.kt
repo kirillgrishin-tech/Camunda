@@ -4,6 +4,7 @@ import com.grishin.camunda.dto.ProcessVariables
 import com.grishin.camunda.service.ProcessService
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import reactor.kotlin.core.publisher.toMono
 import java.util.concurrent.ExecutionException
@@ -14,6 +15,11 @@ class ProcessController {
 
     @Autowired
     lateinit var processService: ProcessService
+
+    @GetMapping("/")
+    suspend fun ok(): ResponseEntity<Unit> {
+        return ResponseEntity.ok().build()
+    }
 
     @PostMapping("/start")
     @Throws(ExecutionException::class, InterruptedException::class)
