@@ -1,13 +1,10 @@
 package com.grishin.camunda.configuration
 
-import com.mongodb.reactivestreams.client.MongoClient
-import com.mongodb.reactivestreams.client.MongoClients
 import io.netty.channel.ChannelOption
 import io.netty.handler.timeout.ReadTimeoutHandler
 import io.netty.handler.timeout.WriteTimeoutHandler
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.data.mongodb.core.ReactiveMongoTemplate
 import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
 import org.springframework.http.client.reactive.ReactorClientHttpConnector
