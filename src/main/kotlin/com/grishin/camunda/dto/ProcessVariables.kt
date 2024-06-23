@@ -9,16 +9,17 @@ import org.apache.commons.lang3.builder.ToStringStyle
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class ProcessVariables(var businessKey: String?,
-                            var result: Boolean?,
-                            var products: MutableList<Product?>?,
-                            var count: Int?,
-                            var check: Boolean?) {
+                            var result: Boolean? = null,
+                            var products: MutableList<Product?>? = null,
+                            var count: Int? = null,
+                            var check: Boolean? = null
+) {
 
     override fun toString(): String {
         return ToStringBuilder.reflectionToString(
                 this,
                 object : MultilineRecursiveToStringStyle() {
-                    fun withShortPrefixes(): ToStringStyle? {
+                    fun withShortPrefixes(): ToStringStyle {
                         this.isUseShortClassName = true
                         this.isUseIdentityHashCode = false
                         return this

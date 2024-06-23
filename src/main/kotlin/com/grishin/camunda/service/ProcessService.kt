@@ -36,15 +36,10 @@ class ProcessService {
         clientRequestRepository
             .insert(ClientRequest(
                 products = variables.products,
-                id =null,
                 businessKey = processInstanceId.toString()))
             .subscribe()
         return ProcessVariables(
-                businessKey = processInstanceId.toString(),
-                result = null,
-                products = null,
-                check = null,
-                count = null
+            businessKey = processInstanceId.toString()
         )
     }
 

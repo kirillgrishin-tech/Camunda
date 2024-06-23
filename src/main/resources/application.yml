@@ -1,9 +1,10 @@
 zeebe:
   client:
     cloud:
-      auth-url: http://camunda.xyz/auth/realms/camunda-platform/protocol/openid-connect/token
-      clientId: zeebe
-      clientSecret: muVsBjwCQu
+      auth-url: ${ZEEBE_AUTH_URL}
+      #auth-url: http://camunda.xyz/auth/realms/camunda-platform/protocol/openid-connect/token
+      clientId: ${ZEEBE_CLIENT_ID}
+      clientSecret: ${ZEEBE_CLIENT_SECRET}
     worker:
       defaultName: default
     broker:

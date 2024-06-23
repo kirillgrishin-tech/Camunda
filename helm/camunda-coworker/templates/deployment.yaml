@@ -37,6 +37,13 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          env:
+            - name: ZEEBE_AUTH_URL
+              value: http://camunda.xyz/auth/realms/camunda-platform/protocol/openid-connect/token
+            - name: ZEEBE_CLIENT_ID
+              value: zeebe
+            - name: ZEEBE_CLIENT_SECRET
+              value: kPE4MrAsgK
           livenessProbe:
             httpGet:
               path: /process/
